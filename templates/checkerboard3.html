@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/checkerboard.css') }}">
+</head>
+<body>
+    <table>
+
+    {% for i in range(nun1) %}
+    <tr>
+        {% if i % 2 == 1 %}
+            {% for j in range(nun2) %}
+            <td class="color{{ j % 2 }}"></td>
+            {% endfor %}
+
+        {% elif i % 2 == 0 %}
+            {% for j in range(nun2) %}
+            <td class="color{{ (j + 1) % 2 }}"></td>
+            {% endfor %}
+        {% endif %}
+    </tr>
+    
+    {% endfor %}
+    </table>
+</body>
+</html>
